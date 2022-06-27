@@ -17,10 +17,9 @@ async function handlePageLoad() {
 }
 
 async function handleSignIn(email, password) {
-    // *** remove next line after verifying credentials are working
-    console.log(email, password);
+    
 
-    const response = null; // *** ? (don't forget call is asynchronous!)
+    const response = await signIn(email, password);
     checkAuth(response);
 }
 

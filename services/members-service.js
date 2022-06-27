@@ -13,7 +13,7 @@ export async function signUp(email, password) {
 }
 
 export async function signIn(email, password) {
-    // *** implement supabase sign in
+    return await client.auth.signIn({ email, password });
 }
 
 export async function signOut() {
