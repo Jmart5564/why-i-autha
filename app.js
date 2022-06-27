@@ -9,10 +9,12 @@ let errorMessage = '';
 
 // write handler functions
 async function handlePageLoad() {
-    // *** get the user
-
-    // *** if there is a user, redirect (use replace) to './members'
-
+    const user = await getUser();
+    if (user) {
+        location.replace('./members');
+        return;
+    }
+    
     display();
 }
 
@@ -31,8 +33,6 @@ async function handleSignUp(email, password) {
 }
 
 function checkAuth(response) {
-    // *** remove next line after verifying user is being returned
-    console.log(response.user);
 
     if (response?.error) {
         // eslint-disable-next-line no-console
