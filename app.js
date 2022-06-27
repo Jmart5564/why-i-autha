@@ -1,5 +1,5 @@
 // import services and utilities
-// *** import needed service methods
+import { getUser, signIn, signUp } from './services/members-service.js';
 
 // import component creators
 import createAuthForm from './components/AuthForm.js';
@@ -25,11 +25,11 @@ async function handleSignIn(email, password) {
 }
 
 async function handleSignUp(email, password) {
-    // *** remove next line after verifying credentials are working
+    const response = await signUp(email, password);
+    checkAuth(response);
     console.log(email, password);
 
-    const response = null; // *** ? (don't forget call is asynchronous!)
-    checkAuth(response);
+    //const response = null; // *** ? (don't forget call is asynchronous!)
 }
 
 function checkAuth(response) {
