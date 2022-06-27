@@ -27,7 +27,6 @@ async function handleSignIn(email, password) {
 async function handleSignUp(email, password) {
     const response = await signUp(email, password);
     checkAuth(response);
-    console.log(email, password);
 
     //const response = null; // *** ? (don't forget call is asynchronous!)
 }
@@ -37,16 +36,14 @@ function checkAuth(response) {
     console.log(response.user);
 
     if (response?.error) {
-        // *** 
-        // 1. console.log the response.error
-        // 2. set the errorMessage state from response.error.message
-        // (keep this line👇 before console.log)
         // eslint-disable-next-line no-console
+        console.log(response.error);
+        errorMessage = response.error.message;
 
         display();
     }
     else {
-        // *** redirect (use replace) to './members'
+        location.replace('./members');
     }
 }
 
